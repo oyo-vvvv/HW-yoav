@@ -10,3 +10,4 @@ var letter = prompt("Peek a letter that u want to uppCase in the text").toLocale
 var letterUp = letter.toLocaleUpperCase();
 var text = text.replaceAll(letter, letterUp);
 alert(text);
+
