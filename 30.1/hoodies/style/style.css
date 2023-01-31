@@ -1,0 +1,92 @@
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+  background-color: lightgray;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  width: 300px;
+  height: 400px;
+}
+
+.brand-name {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: navy;
+}
+
+.model-item {
+  margin-top: 10px;
+  font-size: 18px;
+  color: black;
+}
+
+.btn-success {
+  margin-top: 10px;
+  background-color: green;
+  border-color: green;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: lightgreen;
+  cursor: pointer;
+}
+
+.form-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.my-input {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  width: 300px;
+}
+
+.my-select {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  width: 300px;
+  height: 40px;
+}
+
+.red-border {
+  border-color: red;
+}
+
+.form-check-input {
+  margin: 10px;
+}
+
+.btn-primary {
+  margin-top: 10px;
+  background-color: blue;
+  border-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: lightblue;
+  cursor: pointer;
+}
