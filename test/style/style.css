@@ -1,0 +1,20 @@
+#main {
+    display: flex;
+    justify-content: center;
+  }
+  
+  button {
+    margin: 5px;
+    padding: 5px;
+    width: 150px;
+    height: 150px;
+  }
+  
+  #table {
+    width: 480px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  

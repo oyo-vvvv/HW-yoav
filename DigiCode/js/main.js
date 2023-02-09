@@ -42,6 +42,7 @@ function verifyCode() {
     tries--;
     if (tries === 0) {
       alert("You locked your phone");
+      disableButtons();
     } else {
       alert(tries + " tries left");
     }
@@ -53,5 +54,11 @@ function reset() {
   typedCode = "";
   document.querySelectorAll("button").forEach(function (btn) {
     btn.style.backgroundColor = "";
+  });
+}
+
+function disableButtons() {
+  document.querySelectorAll("button").forEach(function (btn) {
+    btn.setAttribute("disabled", true);
   });
 }
