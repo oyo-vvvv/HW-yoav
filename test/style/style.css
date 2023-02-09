@@ -1,20 +1,34 @@
 #main {
-    display: flex;
-    justify-content: center;
-  }
-  
-  button {
-    margin: 5px;
-    padding: 5px;
-    width: 150px;
-    height: 150px;
-  }
-  
-  #table {
-    width: 480px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  margin: 5px;
+  width: 15px;
+  height: 15px;
+  position: relative;
+}
+
+#table {
+  width: 103px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  transform: rotate(4deg);
+  margin-left: -77px;
+  margin-top: 201px;
+}
+
+#bombcs {
+  position: fixed;
+}
+
+p {
+  color: red;
+  position: relative;
+  margin-left: -38px;
+  margin-top: 96px;
+  transform: rotate(4deg);
+}

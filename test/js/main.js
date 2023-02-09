@@ -1,4 +1,12 @@
+alert("If you press 'OK', you'll have 3minutes to found the code or the bomb will BOUMBOUM")
+
 const timer = document.getElementById("timer");
+
+
+
+var display = document.createElement("p");
+display.innerText = "03:01";
+document.getElementById("main").append(display)
 
 function startTimer() {
   var timeLeft = 3 * 60;
@@ -10,14 +18,14 @@ function startTimer() {
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
 
-    timer.innerHTML = minutes + ":" + seconds;
+    display.innerHTML = minutes + ":" + seconds;
 
     timeLeft--;
 
     if (timeLeft < 0) {
       clearInterval(interval);
       disableButtons();
-      timer.innerHTML = "Time is up";
+      display.innerHTML = "Time is up";
     }
   }, 1000);
 }
@@ -25,16 +33,18 @@ function startTimer() {
 startTimer();
 
 const buttons = [
-  { number: "1", letters: "." },
-  { number: "2", letters: "A, B, C" },
-  { number: "3", letters: "D, E, F" },
-  { number: "4", letters: "G, H, I" },
-  { number: "5", letters: "J, K, L" },
-  { number: "6", letters: "M, N, O" },
-  { number: "7", letters: "P, Q, R, S" },
-  { number: "8", letters: "T, U, V" },
-  { number: "9", letters: "W, X, Y, Z" },
-  { number: "0", letters: "." },
+  { number: "1" },
+  { number: "2" },
+  { number: "3" },
+  { number: "4" },
+  { number: "5" },
+  { number: "6" },
+  { number: "7" },
+  { number: "8" },
+  { number: "9" },
+  { number: "*" },
+  { number: "0" },
+  { number: "#" },
 ];
 
 const code = "1706";
@@ -49,15 +59,15 @@ const timerDisplay = document.createElement("div");
 timerDisplay.style.fontSize = "24px";
 timerDisplay.style.margin = "10px 0";
 
-buttons.forEach(function ({ number, letters }) {
+buttons.forEach(function ({ number }) {
   const btn = document.createElement("button");
-  btn.innerText = number + "\n\n" + letters;
+  btn.innerText = number;
   btn.addEventListener("click", function () {
     clearTimeout(timeout);
     clearInterval(interval);
-    btn.style.backgroundColor = "aqua";
+    btn.style.backgroundColor = "yellow";
     typedCode += number;
-    
+
     timeout = setTimeout(reset, 3000);
     if (typedCode.length === 4) {
       verifyCode();
@@ -75,11 +85,10 @@ function verifyCode() {
   } else {
     tries--;
     if (tries === 0) {
-      disableButtons();
-    } 
-    }reset();
+    }
   }
-  
+  reset();
+}
 
 function reset() {
   clearInterval(interval);
@@ -87,6 +96,7 @@ function reset() {
   typedCode = "";
   document.querySelectorAll("button").forEach(function (btn) {
     btn.style.backgroundColor = "";
+    
   });
 }
 
@@ -95,3 +105,7 @@ function disableButtons() {
     btn.setAttribute("disabled", true);
   });
 }
+
+// function stopTimer() {
+//   clearInterval(interval);
+// }
