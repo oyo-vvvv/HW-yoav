@@ -4,6 +4,8 @@ import { MySection } from "../../HTMLElements/section.js";
 import CSS from "./style.css" assert { type: "css" };
 document.adoptedStyleSheets.push(CSS)
 
+
+
 function init() {
   var form = {};
   var Home = new MySection("home-page", "views");
@@ -13,8 +15,10 @@ function init() {
   form.login = new MyButton("", "", "Login Please", function () {
     alert(email.value + "\n" + password.value);
   });
+  form.toggleBtn = document.createElement("button");
+  form.toggleBtn.innerText = "Don't have an account yet ?";
 
-  Home.append(form.email, form.password, form.login);
+  Home.append(form.email, form.password, form.login, form.toggleBtn);
   document.getElementById("main").append(Home);
   return form;
 }

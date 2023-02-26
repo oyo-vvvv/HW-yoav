@@ -2,7 +2,6 @@ import { MyButton } from "../../HTMLElements/button.js";
 import { MyInput } from "../../HTMLElements/input.js";
 import { MySection } from "../../HTMLElements/section.js";
 
-
 function init() {
   var form = {};
   var Home = new MySection("home-page", "views");
@@ -19,8 +18,13 @@ function init() {
   form.register = new MyButton("", "", "Register Now", function () {
     console.log("registered");
   });
-  Home.append(form.fName, form.lName, form.email, form.password, form.register);
+
+  form.toggleBtn = document.createElement("button");
+  form.toggleBtn.innerText = "Already have an account ?";
+  
+  Home.append(form.fName, form.lName, form.email, form.password, form.register, form.toggleBtn);
   document.getElementById("main").append(Home);
+
   return form;
 }
 
