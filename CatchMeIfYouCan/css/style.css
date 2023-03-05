@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Courier New", Courier, monospace;
+  user-select: none;
+}
+html{
+  overflow-x: hidden;
+}
+
+/* -----------------------------Header------------------------------------------ */
+#CatchMe {
+  color: rgb(17, 0, 255);
+}
+#CatchHover {
+  display: none;
+  color: rgb(17, 0, 255);
+  text-shadow: 2px 0 rgb(0, 0, 0), -2px 0 rgb(0, 0, 0), 0 2px rgb(0, 0, 0),
+    0 -2px rgb(0, 0, 0), 1px 1px rgb(0, 0, 0), -1px -1px rgb(0, 0, 0),
+    1px -1px rgb(0, 0, 0), -1px 1px rgb(0, 0, 0);
+}
+
+#arabe {
+  position: absolute;
+  bottom: -30px;
+  left: -62px;
+  width: 143px;
+  transform: rotate(329deg);
+}
+#chapeau {
+  position: absolute;
+  bottom: 23px;
+  left: 1072px;
+  width: 143px;
+  transform: rotate(348deg);
+}
+#chapeau:hover {
+  animation: rotation 0.1s infinite linear;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+#frange {
+  position: absolute;
+  transition: 0.4s;
+  top: -83px;
+  left: -57px;
+  width: 108px;
+  transform: scaleX(-1) rotate(222deg);
+  z-index: 20;
+}
+#frange:hover {
+  transition: 0.4s;
+  top: -27px;
+  left: -2px;
+  transform: scaleX(-1) rotate(222deg);
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+#spanHead {
+  border: 5px solid black;
+  width: 62%;
+  border-radius: 40px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-image: url(../assets/img/quebec.jpg);
+  background-size: contain;
+}
+#spanHead:hover #CatchMe {
+  display: none;
+}
+#spanHead:hover #CatchHover {
+  display: inline;
+}
+/* ------------------------Section----------------------------- */
+
+section {
+  display: flex;
+  margin-top: 48px;
+  justify-content: space-around;
+  
+}
+
+#data {
+  width: 275px;
+  height: 742px;
+  background-color: rgb(51, 33, 33);
+  border: 5px solid rgb(51, 33, 33);
+  border-radius: 10px;
+}
+
+#board {
+  background-color: bisque;
+  width: 1226px;
+  height: 742px;
+  border-radius: 10px;
+  border: 5px solid bisque;
+}
+
+#settings {
+  position: absolute;
+  width: 202px;
+  height: 742px;
+  background-color: rgba(0, 255, 200, 0.288);
+  border: 5px solid rgba(0, 255, 200, 0.288);
+  border-radius: 10px;
+  right: -212px;
+  transition: .4s;
+  
+}
+
+#arrow{
+    position: absolute;
+    font-size: 45px;
+    color: red;
+    transform: scaleX(-1);
+    left: -28px;
+    top: -19px;
+    transition: .4s;
+}
+
+/* #arrow:hover{
+    left: -47px;
+    transition: .4s;
+} */
