@@ -1,3 +1,7 @@
+// checkeur
+
+var check = 1;
+
 // cibles
 const Target = document.createElement("img");
 maskSrc = "./assets/img/mask.png";
@@ -57,7 +61,7 @@ h1Hover.id = "CatchHover";
 spanHead.id = "spanHead";
 head.append(spanHead, frange);
 spanHead.append(h1, h1Hover, arabe, chapeau);
-h1.innerText = "CATCH ME if YOU CAN !";
+h1.innerText = "CATCH ME if YOU CANADA !";
 h1Hover.innerText = "WIll YOU Start the GaMe ?";
 
 // section
@@ -116,18 +120,24 @@ iconArrow.addEventListener("click", function () {
 //--------------------------------data-------------------------------------//
 
 const dataScore = document.createElement("div");
+const dataScoreString = document.createElement("span");
+var dataScoreLength = document.createElement("span");
+var dataScoreValue = 0;
 
 const dataPnl = document.createElement("div");
 const dataPnlString = document.createElement("span");
 var dataPnlLength = document.createElement("span");
+var dataLvlLength = 1;
 
 const dataLvl = document.createElement("div");
 const dataLvlString = document.createElement("span");
 var dataLvlLength = document.createElement("span");
+var lvlValue = 1;
+// document.getElementById("lvl-length").innerText = lvlValue;
 
 const dataMc = document.createElement("div");
 const dataMcString = document.createElement("span");
-var dataMcLength = document.createElement("span")
+var dataMcLength = document.createElement("span");
 
 const dataTimer = document.createElement("div");
 var dataTimerMin = document.createElement("span");
@@ -135,11 +145,14 @@ var dataTimerSec = document.createElement("span");
 
 const dataHs = document.createElement("div");
 
-// dataLvlLength.id = "lvl-length";
+dataScoreString.id = "score-string";
+dataScoreLength.id = "score-length";
+dataLvlLength.id = "lvl-length";
 dataScore.id = "score";
 dataPnl.id = "pnl";
 dataPnlString.id = "pnlString";
 dataPnlLength.id = "pnlLength";
+dataPnlValue = 10;
 dataLvl.id = "lvl";
 dataMc.id = "mc";
 dataTimer.id = "timer";
@@ -147,15 +160,14 @@ dataHs.id = "hs";
 // dataTimerMin.id = "min";
 // dataTimerSec.id = "sec";
 
-dataScore.innerText = "Score -> 0";
+dataScoreString.innerText = "Score -> ";
+// document.getElementById("score-length").innerText = dataScoreValue
 
 dataPnlString.innerText = "Point until next LvL -> ";
-dataPnlLength.innerText = 10;
 
 dataLvl.innerText = "Level -> ";
 
 dataMcString.innerText = "Miss Click -> ";
-
 
 dataTimer.innerText = "Timer -> ";
 dataHs.innerText = "High Score";
@@ -167,10 +179,11 @@ dataTimerSec.innerText = "00";
 dataTimer.append(dataTimerMin, " : ", dataTimerSec);
 
 data.append(dataScore, dataPnl, dataLvl, dataMc, dataTimer, dataHs);
+dataScore.append(dataScoreString, dataScoreLength);
 dataPnl.append(dataPnlString, dataPnlLength);
 dataLvl.append(dataLvlString, dataLvlLength);
-dataMc.append(dataMcString)
-dataMcString.append(dataMcLength)
+dataMc.append(dataMcString);
+dataMcString.append(dataMcLength);
 var Chrono = {
   min: { val: 0, DOM: dataTimerMin },
   sec: { val: 60, DOM: dataTimerSec },
@@ -212,13 +225,15 @@ function timer() {
 h1Hover.addEventListener("click", start);
 
 function start() {
+  check++
   if (confirm("Are you REaDy for the GAME")) {
     Target.style.left = Math.floor(Math.random() * 1100 + 1) + "px"; //Math.floor((Math.random() * 200) + 1);  Generates random number between 1 and 200
     Target.style.top = Math.floor(Math.random() * 630 + 1) + "px"; //Math.floor((Math.random() * 100) + 1);  Generates random number between 1 and 100
     timer();
-    dataLvl.innerText += dataLvlLength;
+    document.getElementById("lvl-length").innerText = lvlValue;
     MaskMp3.play();
     Target.style.display = "block";
+    document.getElementById("pnlLength").innerText = "10";
     // pointCounter();
   } else {
     alert("Error404 skill not found");
@@ -228,85 +243,130 @@ function start() {
 Target.addEventListener("mouseover", mooveTarget);
 
 function mooveTarget() {
-  setTimeout(() => {
-    function randomIntFromIntervalLeft(min, max) {
-      return Math.floor(Math.random() * (max - min + 1) + min);
+  if (check == 2) {
+    setTimeout(() => {
+      function randomIntFromIntervalLeft(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+      }
+  
+      const randomLeft = randomIntFromIntervalLeft(30, 1100);
+  
+      Target.style.left = randomLeft + "px";
+  
+      function randomIntFromIntervalTop(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+      }
+  
+      const randomTop = randomIntFromIntervalTop(30, 630);
+  
+      Target.style.top = randomTop + "px";
+    }, speed);
+  }
+  
+  Target.addEventListener("click", function () {
+    dataMcLength--;
+    // Move the target
+    mooveTarget();
+  
+    //////////////////////////////////  pnl  ////////////////////////////////
+  
+    if (dataPnlValue !== 1) {
+      dataPnlValue--;
+      dataPnlValue--;
+      document.getElementById("pnlLength").innerText = dataPnlValue;
+    } else {
+      if (lvlValue == 1) {
+        lvlValue = 2;
+        dataPnlValue = 19;
+        document.getElementById("pnlLength").innerText = dataPnlValue;
+      } else if (lvlValue == 2) {
+        lvlValue = 3;
+        dataPnlValue = 29;
+        document.getElementById("pnlLength").innerText = dataPnlValue;
+      } else if (lvlValue == 3) {
+        lvlValue = 4;
+        dataPnlValue = 39;
+        document.getElementById("pnlLength").innerText = dataPnlValue;
+      } else if (lvlValue == 4) {
+        lvlValue = 5;
+        dataPnlValue = 49;
+        document.getElementById("pnlLength").innerText = dataPnlValue;
+      }
     }
-
-    const randomLeft = randomIntFromIntervalLeft(30, 1100);
-
-    Target.style.left = randomLeft + "px";
-
-    function randomIntFromIntervalTop(min, max) {
-      return Math.floor(Math.random() * (max - min + 1) + min);
+  
+    ////////////////////////////////////////////////////////////////////////
+  
+    if (dataPnlValue == 20) {
+      document.getElementById("lvl-length").innerText = lvlValue;
+    } else if (dataPnlValue == 30) {
+      document.getElementById("lvl-length").innerText = lvlValue;
+    } else if (dataPnlValue == 40) {
+      document.getElementById("lvl-length").innerText = lvlValue;
+    } else if (dataPnlValue == 50) {
+      document.getElementById("lvl-length").innerText = lvlValue;
     }
-
-    const randomTop = randomIntFromIntervalTop(30, 630);
-
-    Target.style.top = randomTop + "px";
-  }, speed);
-}
-
-
-var dataLvlLength = 1;
-
-Target.addEventListener("click", function () {
-  // Move the target
-  mooveTarget();
-
-  // Decrease the length
-  dataPnlLength--;
-  dataPnlString.innerText = "Point until next LvL -> " + dataPnlLength;
-
-  // Play the coin sound and animation
-  Target.src = "./assets/videos/coin.gif";
-  Target.width = "1000px";
-  CoinXp.play();
-
-  // Reset the target after a delay
-  setTimeout(() => {
-    Target.src = maskSrc;
-    Target.width = "50px";
-  }, 500);
-
-  // Update the level if necessary
-  if (dataPnlLength == 0) {
-    dataLvlLength++;
-    dataLvl.innerText = "Level -> " + dataLvlLength;
-
-    // Set the length based on the level
-    switch (dataLvlLength) {
-      case 2:
-        document.getElementById("pnlLength").innerText = 20;
-        dataPnlLength = 20;
-        break;
-      case 3:
-        document.getElementById("pnlLength").innerText = 30;
-        dataPnlLength = 30;
-        break;
-      case 4:
-        document.getElementById("pnlLength").innerText = 40;
-        dataPnlLength = 40;
-        break;
-      case 5:
-        document.getElementById("pnlLength").innerText = 50;
-        dataPnlLength = 50;
-        break;
-      case 6:
-        document.getElementById("pnlLength").innerText = 60;
-        dataPnlLength = 60;
-        break;
+    // if (dataPnlValue == 20) {
+    //     lvlValue++;
+    //     console.log(lvlValue);
+    //     document.getElementById("lvl-length").innerText = parseInt(lvlValue)
+    // }
+    // if (dataPnlValue == 0) {
+    //   lvlValue++;
+    //   document.getElementById("lvl-length").innerText = lvlValue
+    //   // dataLvl.innerText = "Level -> " + dataLvlLength;
+  
+    //   switch (dataLvlLength) {
+    //     case 2:
+    //       document.getElementById("pnlLength").innerText = 20;
+    //       dataPnlValue = 20;
+    //       break;
+    //     case 3:
+    //       document.getElementById("pnlLength").innerText = 30;
+    //       dataPnlValue = 30;
+    //       break;
+    //     case 4:
+    //       document.getElementById("pnlLength").innerText = 40;
+    //       dataPnlValue = 40;
+    //       break;
+    //     case 5:
+    //       document.getElementById("pnlLength").innerText = 50;
+    //       dataPnlValue = 50;
+    //       break;
+    //     case 6:
+    //       document.getElementById("pnlLength").innerText = 60;
+    //       dataPnlValue = 60;
+    //       break;
+    //   }
+    // }
+  
+    Target.src = "./assets/videos/coin.gif";
+    Target.width = "1000px";
+    CoinXp.play();
+  
+    setTimeout(() => {
+      Target.src = maskSrc;
+      Target.width = "50px";
+    }, 500);
+  
+    dataScoreValue++;
+    dataScoreValue++;
+    document.getElementById("score-length").innerText = dataScoreValue;
+  });
+  
+  board.addEventListener("click", missClick);
+  
+  var dataMcLength = 0;
+  
+  function missClick() {
+    dataPnlValue++;
+  
+    document.getElementById("pnlLength").innerText = dataPnlValue;
+    dataMcLength++;
+  
+    dataMc.innerText = "Miss Click -> " + dataMcLength;
+    if (dataScoreValue !== 0) {
+      dataScoreValue--;
+      document.getElementById("score-length").innerText = dataScoreValue;
     }
   }
-});
-
-board.addEventListener("click", missClick)
-
-var dataMcLength = 0;
-
-function missClick(){
-  dataMcLength++
-    dataMc.innerText = "Miss Click -> " + dataMcLength;
-    dataPnlLength2++
-
 }
