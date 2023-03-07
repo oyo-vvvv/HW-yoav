@@ -1,7 +1,3 @@
-// checkeur
-
-var check = 1;
-
 // cibles
 const Target = document.createElement("img");
 maskSrc = "./assets/img/mask.png";
@@ -225,7 +221,6 @@ function timer() {
 h1Hover.addEventListener("click", start);
 
 function start() {
-  check++
   if (confirm("Are you REaDy for the GAME")) {
     Target.style.left = Math.floor(Math.random() * 1100 + 1) + "px"; //Math.floor((Math.random() * 200) + 1);  Generates random number between 1 and 200
     Target.style.top = Math.floor(Math.random() * 630 + 1) + "px"; //Math.floor((Math.random() * 100) + 1);  Generates random number between 1 and 100
@@ -243,130 +238,128 @@ function start() {
 Target.addEventListener("mouseover", mooveTarget);
 
 function mooveTarget() {
-  if (check == 2) {
-    setTimeout(() => {
-      function randomIntFromIntervalLeft(min, max) {
-        return Math.floor(Math.random() * (max - min + 1) + min);
-      }
-  
-      const randomLeft = randomIntFromIntervalLeft(30, 1100);
-  
-      Target.style.left = randomLeft + "px";
-  
-      function randomIntFromIntervalTop(min, max) {
-        return Math.floor(Math.random() * (max - min + 1) + min);
-      }
-  
-      const randomTop = randomIntFromIntervalTop(30, 630);
-  
-      Target.style.top = randomTop + "px";
-    }, speed);
-  }
-  
-  Target.addEventListener("click", function () {
-    dataMcLength--;
-    // Move the target
-    mooveTarget();
-  
-    //////////////////////////////////  pnl  ////////////////////////////////
-  
-    if (dataPnlValue !== 1) {
-      dataPnlValue--;
-      dataPnlValue--;
-      document.getElementById("pnlLength").innerText = dataPnlValue;
-    } else {
-      if (lvlValue == 1) {
-        lvlValue = 2;
-        dataPnlValue = 19;
-        document.getElementById("pnlLength").innerText = dataPnlValue;
-      } else if (lvlValue == 2) {
-        lvlValue = 3;
-        dataPnlValue = 29;
-        document.getElementById("pnlLength").innerText = dataPnlValue;
-      } else if (lvlValue == 3) {
-        lvlValue = 4;
-        dataPnlValue = 39;
-        document.getElementById("pnlLength").innerText = dataPnlValue;
-      } else if (lvlValue == 4) {
-        lvlValue = 5;
-        dataPnlValue = 49;
-        document.getElementById("pnlLength").innerText = dataPnlValue;
-      }
+  setTimeout(() => {
+    function randomIntFromIntervalLeft(min, max) {
+      return Math.floor(Math.random() * (max - min + 1) + min);
     }
-  
-    ////////////////////////////////////////////////////////////////////////
-  
-    if (dataPnlValue == 20) {
-      document.getElementById("lvl-length").innerText = lvlValue;
-    } else if (dataPnlValue == 30) {
-      document.getElementById("lvl-length").innerText = lvlValue;
-    } else if (dataPnlValue == 40) {
-      document.getElementById("lvl-length").innerText = lvlValue;
-    } else if (dataPnlValue == 50) {
-      document.getElementById("lvl-length").innerText = lvlValue;
+
+    const randomLeft = randomIntFromIntervalLeft(30, 1100);
+
+    Target.style.left = randomLeft + "px";
+
+    function randomIntFromIntervalTop(min, max) {
+      return Math.floor(Math.random() * (max - min + 1) + min);
     }
-    // if (dataPnlValue == 20) {
-    //     lvlValue++;
-    //     console.log(lvlValue);
-    //     document.getElementById("lvl-length").innerText = parseInt(lvlValue)
-    // }
-    // if (dataPnlValue == 0) {
-    //   lvlValue++;
-    //   document.getElementById("lvl-length").innerText = lvlValue
-    //   // dataLvl.innerText = "Level -> " + dataLvlLength;
-  
-    //   switch (dataLvlLength) {
-    //     case 2:
-    //       document.getElementById("pnlLength").innerText = 20;
-    //       dataPnlValue = 20;
-    //       break;
-    //     case 3:
-    //       document.getElementById("pnlLength").innerText = 30;
-    //       dataPnlValue = 30;
-    //       break;
-    //     case 4:
-    //       document.getElementById("pnlLength").innerText = 40;
-    //       dataPnlValue = 40;
-    //       break;
-    //     case 5:
-    //       document.getElementById("pnlLength").innerText = 50;
-    //       dataPnlValue = 50;
-    //       break;
-    //     case 6:
-    //       document.getElementById("pnlLength").innerText = 60;
-    //       dataPnlValue = 60;
-    //       break;
-    //   }
-    // }
-  
-    Target.src = "./assets/videos/coin.gif";
-    Target.width = "1000px";
-    CoinXp.play();
-  
-    setTimeout(() => {
-      Target.src = maskSrc;
-      Target.width = "50px";
-    }, 500);
-  
-    dataScoreValue++;
-    dataScoreValue++;
-    document.getElementById("score-length").innerText = dataScoreValue;
-  });
-  
-  board.addEventListener("click", missClick);
-  
-  var dataMcLength = 0;
-  
-  function missClick() {
-    dataPnlValue++;
-  
+
+    const randomTop = randomIntFromIntervalTop(30, 630);
+
+    Target.style.top = randomTop + "px";
+  }, speed);
+}
+
+Target.addEventListener("click", function () {
+  dataMcLength--;
+  // Move the target
+  mooveTarget();
+
+  //////////////////////////////////  pnl  ////////////////////////////////
+
+  if (dataPnlValue !== 1) {
+    dataPnlValue--;
+    dataPnlValue--;
     document.getElementById("pnlLength").innerText = dataPnlValue;
-    dataMcLength++;
-  
-    dataMc.innerText = "Miss Click -> " + dataMcLength;
-    if (dataScoreValue !== 0) {
-      dataScoreValue--;
-      document.getElementById("score-length").innerText = dataScoreValue;
+  } else {
+    if (lvlValue == 1) {
+      lvlValue = 2;
+      dataPnlValue = 19;
+      document.getElementById("pnlLength").innerText = dataPnlValue;
+    } else if (lvlValue == 2) {
+      lvlValue = 3;
+      dataPnlValue = 29;
+      document.getElementById("pnlLength").innerText = dataPnlValue;
+    } else if (lvlValue == 3) {
+      lvlValue = 4;
+      dataPnlValue = 39;
+      document.getElementById("pnlLength").innerText = dataPnlValue;
+    } else if (lvlValue == 4) {
+      lvlValue = 5;
+      dataPnlValue = 49;
+      document.getElementById("pnlLength").innerText = dataPnlValue;
     }
+  }
+
+  ////////////////////////////////////////////////////////////////////////
+
+  if (dataPnlValue == 20) {
+    document.getElementById("lvl-length").innerText = lvlValue;
+  } else if (dataPnlValue == 30) {
+    document.getElementById("lvl-length").innerText = lvlValue;
+  } else if (dataPnlValue == 40) {
+    document.getElementById("lvl-length").innerText = lvlValue;
+  } else if (dataPnlValue == 50) {
+    document.getElementById("lvl-length").innerText = lvlValue;
+  }
+  // if (dataPnlValue == 20) {
+  //     lvlValue++;
+  //     console.log(lvlValue);
+  //     document.getElementById("lvl-length").innerText = parseInt(lvlValue)
+  // }
+  // if (dataPnlValue == 0) {
+  //   lvlValue++;
+  //   document.getElementById("lvl-length").innerText = lvlValue
+  //   // dataLvl.innerText = "Level -> " + dataLvlLength;
+
+  //   switch (dataLvlLength) {
+  //     case 2:
+  //       document.getElementById("pnlLength").innerText = 20;
+  //       dataPnlValue = 20;
+  //       break;
+  //     case 3:
+  //       document.getElementById("pnlLength").innerText = 30;
+  //       dataPnlValue = 30;
+  //       break;
+  //     case 4:
+  //       document.getElementById("pnlLength").innerText = 40;
+  //       dataPnlValue = 40;
+  //       break;
+  //     case 5:
+  //       document.getElementById("pnlLength").innerText = 50;
+  //       dataPnlValue = 50;
+  //       break;
+  //     case 6:
+  //       document.getElementById("pnlLength").innerText = 60;
+  //       dataPnlValue = 60;
+  //       break;
+  //   }
+  // }
+
+  Target.src = "./assets/videos/coin.gif";
+  Target.width = "1000px";
+  CoinXp.play();
+
+  setTimeout(() => {
+    Target.src = maskSrc;
+    Target.width = "50px";
+  }, 500);
+
+  dataScoreValue++;
+  dataScoreValue++;
+  document.getElementById("score-length").innerText = dataScoreValue;
+});
+
+board.addEventListener("click", missClick);
+
+var dataMcLength = 0;
+
+function missClick() {
+  dataPnlValue++;
+
+  document.getElementById("pnlLength").innerText = dataPnlValue;
+  dataMcLength++;
+
+  dataMc.innerText = "Miss Click -> " + dataMcLength;
+  if (dataScoreValue !== 0) {
+    dataScoreValue--;
+    document.getElementById("score-length").innerText = dataScoreValue;
   }
 }
