@@ -1,11 +1,18 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Courier New", Courier, monospace;
+
   user-select: none;
 }
-html{
+html {
   overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+body {
+  cursor: url(../assets/img/elan32.png), auto;
+  font-family: "Courier New", Courier, monospace;
+  background-color: black;
 }
 
 /* -----------------------------Header------------------------------------------ */
@@ -30,7 +37,7 @@ html{
 #chapeau {
   position: absolute;
   bottom: 23px;
-  left: 1072px;
+  left: 1290px;
   width: 143px;
   transform: rotate(348deg);
 }
@@ -69,7 +76,7 @@ header {
 
 #spanHead {
   border: 5px solid black;
-  width: 62%;
+  width: 74%;
   border-radius: 40px;
   height: 100px;
   display: flex;
@@ -90,46 +97,117 @@ header {
 section {
   display: flex;
   margin-top: 48px;
-  justify-content: space-around;
-  
+  justify-content: flex-start;
 }
 
 #data {
   width: 275px;
-  height: 742px;
-  background-color: rgb(51, 33, 33);
-  border: 5px solid rgb(51, 33, 33);
+  height: 738px;
+  background: url(../assets/img/caribouData.png);
+  border: 5px solid rgb(143, 143, 143);
+  background-clip: padding-box;
+  color: rgb(48, 48, 48);
+  text-shadow: 0 4px 0 #00ecff, 0 -4px 0 #ff4045;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 1.2vw;
   border-radius: 10px;
+  margin-left: 162px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 #board {
-  background-color: bisque;
-  width: 1226px;
-  height: 742px;
+  position: relative;
+  margin-left: 18px;
+  width: 1181px;
+  height: 738px;
   border-radius: 10px;
-  border: 5px solid bisque;
+  border: 5px solid rgb(255, 0, 0);
+  background: url(../assets/videos/canadian-flag-canada.gif);
+  background-size: contain;
+  cursor: url(../assets/img/green.png), auto;
+}
+#target {
+  width: 50px;
+  position: relative;
+  transition: 1s;
+  display: none;
+}
+
+/* #groupeBoard{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+} */
+
+#divDor {
+  width: 1181px;
+  position: absolute;
+  top: -50px;
+}
+#divDor2 {
+  width: 1181px;
+  position: absolute;
+  bottom: -55px;
+}
+
+#cddor {
+  animation: traveling 5s infinite, rotation 1s infinite linear;
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+#cddor2 {
+  animation: traveling2 5s infinite, rotation 1s infinite linear;
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+@keyframes traveling {
+  0% {
+    left: 0px;
+  }
+  50% {
+    left: 1150px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+@keyframes traveling2 {
+  0% {
+    left: 1150px;
+  }
+  50% {
+    left: 0px;
+  }
+  100% {
+    left: 1150px;
+  }
 }
 
 #settings {
   position: absolute;
   width: 202px;
-  height: 742px;
-  background-color: rgba(0, 255, 200, 0.288);
-  border: 5px solid rgba(0, 255, 200, 0.288);
+  height: 738px;
+  background-color: rgba(255, 0, 0, 0.377);
+  border: 3px solid rgb(143, 143, 143);
   border-radius: 10px;
   right: -212px;
-  transition: .4s;
-  
+  transition: 0.4s;
 }
 
-#arrow{
-    position: absolute;
-    font-size: 45px;
-    color: red;
-    transform: scaleX(-1);
-    left: -28px;
-    top: -19px;
-    transition: .4s;
+#arrow {
+  position: absolute;
+  font-size: 45px;
+  color: rgb(143, 143, 143);
+  transform: scaleX(-1);
+  left: -28px;
+  top: -19px;
+  transition: 0.4s;
 }
 
 /* #arrow:hover{
