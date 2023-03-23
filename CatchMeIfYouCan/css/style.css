@@ -12,7 +12,7 @@ html {
 body {
   cursor: url(../assets/img/elan32.png), auto;
   font-family: "Courier New", Courier, monospace;
-  background-color: black;
+  background-color: rgb(34, 34, 34);
 }
 
 /* -----------------------------Header------------------------------------------ */
@@ -75,7 +75,7 @@ header {
 }
 
 #spanHead {
-  border: 5px solid black;
+  border: 5px solid rgb(34, 34, 34);
   width: 74%;
   border-radius: 40px;
   height: 100px;
@@ -114,7 +114,17 @@ section {
   margin-left: 162px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+#leaderboard {
+  color: red;
+  overflow: scroll;
+  border: #000000 1px solid;
+  width: 270px;
+  height: 100px;
+  text-shadow:none;
+  font-size: large;
 }
 
 #board {
@@ -133,6 +143,7 @@ section {
   position: relative;
   transition: 1s;
   display: none;
+  animation: rotation 2s infinite linear;
 }
 
 /* #groupeBoard{
@@ -214,3 +225,25 @@ section {
     left: -47px;
     transition: .4s;
 } */
+
+/* ------------------------Settings----------------------------- */
+
+.targets {
+  height: 100px;
+  margin: 10px;
+}
+
+.txt-settings {
+  font-size: 20px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+#character-settings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+
