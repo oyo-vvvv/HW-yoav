@@ -518,7 +518,7 @@ function timer() {
 
 
     }
-  }, 10);
+  }, 1000);
 }
 
 var song = MaskMp3;
