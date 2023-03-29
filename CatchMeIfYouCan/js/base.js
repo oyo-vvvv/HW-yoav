@@ -422,7 +422,7 @@ function timer() {
       clearInterval(inter);
       alert("Time's up!");
       song.pause();
-      greatReset()
+      
       inter = 0;
 
       var name = prompt(
